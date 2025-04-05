@@ -167,8 +167,10 @@ const Map: React.FC = () => {
   // const { data: session } = useSession();
   // Temporary wallet address for demo
   // const walletAddress = session?.user?.name;
-  const address = "0x98692B795D1fB6072de084728f7cC6d56100b807";
-  console.log("walletAddress: ", address);
+
+  //const address = "0x98692B795D1fB6072de084728f7cC6d56100b807";
+  const address = user?.holderAddress;
+  console.log("walletAddress hehe: ", address);
 
   //   const fetchLocations = async () => {
   //     setIsLoading(true);
