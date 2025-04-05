@@ -7,6 +7,7 @@ import Map from "@/components/Map/Map";
 import { MapProvider } from "@/components/Map/MapContext";
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -29,14 +30,14 @@ export default function DashboardPage() {
   //   }
   // };
 
-  // const handleSignOut = async () => {
-  //   try {
-  //     await supabase.auth.signOut();
-  //     router.push('/');
-  //   } catch (error) {
-  //     console.error('Sign out error:', error);
-  //   }
-  // };
+  const handleSignOut = async () => {
+    try {
+      await supabase.auth.signOut();
+      router.push("/");
+    } catch (error) {
+      console.error("Sign out error:", error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -44,7 +45,7 @@ export default function DashboardPage() {
         <div className="flex justify-end mb-4">
           <Button
             variant="outline"
-            // onClick={handleSignOut}
+            onClick={handleSignOut}
             className="flex items-center gap-2"
           >
             <LogOut className="w-4 h-4" />
